@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Niver</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(0, 1, 15);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px; /* Pontinhos pequenos */
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .card-container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card.open {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background-color: #ffffff;
+            font-size: 15px;
+        }
+
+        .back {
+            background-color: #ffffff;
+            transform: rotateY(180deg);
+            font-size: 15px;
+        }
+
+        /* Cores na frase "Feliz Aniversário Gu!" */
+        .colored-text span {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 32px;
+        }
+
+        .colored-text span:nth-child(1) { color: rgb(161, 0, 0); }
+        .colored-text span:nth-child(2) { color: rgb(170, 111, 2); }
+        .colored-text span:nth-child(3) { color: rgb(207, 207, 0); }
+        .colored-text span:nth-child(4) { color: rgb(2, 141, 2); }
+        .colored-text span:nth-child(5) { color: rgb(0, 0, 173); }
+        .colored-text span:nth-child(6) { color: rgb(65, 2, 110); }
+        .colored-text span:nth-child(7) { color: rgb(170, 43, 170); }
+        .colored-text span:nth-child(8) { color: rgb(20, 110, 110); }
+        .colored-text span:nth-child(9) { color: rgb(129, 41, 41); }
+        .colored-text span:nth-child(10) { color: rgb(114, 27, 114); }
+        .colored-text span:nth-child(11) { color: rgb(184, 84, 67); }
+        .colored-text span:nth-child(12) { color: rgb(158, 136, 9); }
+        .colored-text span:nth-child(13) { color: rgb(11, 11, 99); }
+        .colored-text span:nth-child(14) { color: rgb(180, 34, 112); }
+        .colored-text span:nth-child(15) { color: rgb(175, 109, 28); }
+        .colored-text span:nth-child(16) { color: rgb(38, 99, 64); }
+
+        /* Texto "Lálálá" todo em preto */
+        .black-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container" onclick="openCard()">
+        <div class="card" id="card">
+            <div class="front">
+                <div class="colored-text">
+                    <span>F</span><span>e</span><span>l</span><span>i</span><span>z</span>
+                    <span> </span><span>A</span><span>n</span><span>i</span><span>v</span><span>e</span><span>r</span><span>s</span><span>á</span><span>r</span><span>i</span><span>o</span>
+                    <span> </span><span>G</span><span>u</span><span>!</span>
+                </div>
+            </div>
+            <div class="back">
+                <div class="black-text">Oii Gu, tudo bem? Parabéns, felicidades!
+                    Eu só queria dizer que por mais que não conversamos sempre, você ainda é uma pessoa muito especial pra mim e te desejo tudo de bom.♡♡
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById("card").classList.toggle("open");
+        }
+
+        // Criar estrelas no fundo como pontinhos brilhantes
+        function createStars() {
+            const numStars = 100; // Número de estrelas
+            for (let i = 0; i < numStars; i++) {
+                let star = document.createElement("div");
+                star.className = "star";
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>
