@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Niver</title>
+    <title>FelizNiver</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: rgb(0, 1, 15);
+            background-color: black;
             font-family: Georgia, 'Times New Roman', Times, serif;
             overflow: hidden;
             position: relative;
         }
 
+        /* Pontos brilhantes (estrelas) ocupando toda a tela */
         .star {
             position: absolute;
-            width: 3px; /* Pontinhos pequenos */
+            width: 3px;
             height: 3px;
             background-color: white;
             border-radius: 50%;
@@ -41,6 +42,7 @@
             transform-style: preserve-3d;
             transition: transform 1s ease-in-out;
             cursor: pointer;
+            z-index: 1; /* Certifica que o cartão está acima das estrelas */
         }
 
         .card.open {
@@ -70,7 +72,7 @@
         .back {
             background-color: #ffffff;
             transform: rotateY(180deg);
-            font-size: 15px;
+            font-size: 10px;
         }
 
         /* Cores na frase "Feliz Aniversário Gu!" */
@@ -80,28 +82,50 @@
             font-size: 32px;
         }
 
-        .colored-text span:nth-child(1) { color: rgb(161, 0, 0); }
-        .colored-text span:nth-child(2) { color: rgb(170, 111, 2); }
-        .colored-text span:nth-child(3) { color: rgb(207, 207, 0); }
-        .colored-text span:nth-child(4) { color: rgb(2, 141, 2); }
-        .colored-text span:nth-child(5) { color: rgb(0, 0, 173); }
-        .colored-text span:nth-child(6) { color: rgb(65, 2, 110); }
-        .colored-text span:nth-child(7) { color: rgb(170, 43, 170); }
-        .colored-text span:nth-child(8) { color: rgb(20, 110, 110); }
-        .colored-text span:nth-child(9) { color: rgb(129, 41, 41); }
-        .colored-text span:nth-child(10) { color: rgb(114, 27, 114); }
-        .colored-text span:nth-child(11) { color: rgb(184, 84, 67); }
-        .colored-text span:nth-child(12) { color: rgb(158, 136, 9); }
-        .colored-text span:nth-child(13) { color: rgb(11, 11, 99); }
-        .colored-text span:nth-child(14) { color: rgb(180, 34, 112); }
-        .colored-text span:nth-child(15) { color: rgb(175, 109, 28); }
-        .colored-text span:nth-child(16) { color: rgb(38, 99, 64); }
+        .colored-text span:nth-child(1) { color: rgb(156, 39, 39); }
+        .colored-text span:nth-child(2) { color: rgb(175, 125, 33); }
+        .colored-text span:nth-child(3) { color: rgb(172, 172, 11); }
+        .colored-text span:nth-child(4) { color: rgb(25, 110, 25); }
+        .colored-text span:nth-child(5) { color: rgb(21, 21, 119); }
+        .colored-text span:nth-child(6) { color: rgb(58, 18, 87); }
+        .colored-text span:nth-child(7) { color: rgb(153, 74, 153); }
+        .colored-text span:nth-child(8) { color: rgb(25, 100, 100); }
+        .colored-text span:nth-child(9) { color: rgb(107, 34, 34); }
+        .colored-text span:nth-child(10) { color: rgb(87, 23, 87); }
+        .colored-text span:nth-child(11) { color: rgb(145, 57, 41); }
+        .colored-text span:nth-child(12) { color: rgb(136, 117, 11); }
+        .colored-text span:nth-child(13) { color: rgb(14, 14, 73); }
+        .colored-text span:nth-child(14) { color: rgb(145, 22, 87); }
+        .colored-text span:nth-child(15) { color: rgb(145, 83, 7); }
+        .colored-text span:nth-child(16) { color: rgb(10, 92, 45); }
+        .colored-text span:nth-child(17) { color: rgb(114, 60, 63); }
 
-        /* Texto "Lálálá" todo em preto */
+        /* Texto "Lálálá🎶" todo em preto */
         .black-text {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             color: black;
+        }
+
+        /* Botão fixo na parte central inferior da tela */
+        .link-button {
+            position: fixed; /* Fixa o botão na tela */
+            bottom: 20px; /* Distância da borda inferior */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4c7c7c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            z-index: 2; /* Garantir que o botão esteja visível acima de outros elementos */
+        }
+
+        .link-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -116,26 +140,26 @@
                 </div>
             </div>
             <div class="back">
-                <div class="black-text">Oii Gu, tudo bem? Parabéns, felicidades!
-                    Eu só queria dizer que por mais que não conversamos sempre, você ainda é uma pessoa muito especial pra mim e te desejo tudo de bom.♡♡
-                </div>
+                <div class="black-text">Oii Gu, tudo certo? Fiz isso mais por graça e pra desejar feliz aniversário, espero que você consiga seguir seus sonhos. Queria dizer que você é uma pessoa especial pra mim e que sinto muita saudade de ti♡♡</div>
             </div>
         </div>
     </div>
+
+    <a href="https://i.pinimg.com/736x/09/3a/21/093a216ebea34acdc4a87d384550956a.jpg" class="link-button" target="_blank">By, Mel</a>
 
     <script>
         function openCard() {
             document.getElementById("card").classList.toggle("open");
         }
 
-        // Criar estrelas no fundo como pontinhos brilhantes
+        // Criar estrelas em toda a tela
         function createStars() {
-            const numStars = 100; // Número de estrelas
+            const numStars = 200; // Número de estrelas
             for (let i = 0; i < numStars; i++) {
                 let star = document.createElement("div");
                 star.className = "star";
-                star.style.top = `${Math.random() * 100}vh`;
-                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`; // Posição vertical
+                star.style.left = `${Math.random() * 100}vw`; // Posição horizontal
                 document.body.appendChild(star);
             }
         }
